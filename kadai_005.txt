@@ -1,0 +1,82 @@
+#1 Step1~2を行ってます。
+kazumai@ishidakazumanoMacBook-Pro Shared % pwd
+/Users/Shared
+kazumai@ishidakazumanoMacBook-Pro Shared % mkdir git_challenge
+kazumai@ishidakazumanoMacBook-Pro Shared % cd git_challenge
+kazumai@ishidakazumanoMacBook-Pro git_challenge % touch hello_world.txt
+
+#2 Step3 『hello_world.txt』に、2回の変更をコミットしました。
+kazumai@ishidakazumanoMacBook-Pro git_challenge % git init                              
+
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /Users/Shared/git_challenge/.git/
+kazumai@ishidakazumanoMacBook-Pro git_challenge % echo "Hello World" > hello_world.txt
+
+kazumai@ishidakazumanoMacBook-Pro git_challenge % git add hello_world.txt
+
+kazumai@ishidakazumanoMacBook-Pro git_challenge % git commit -m "Add initial hello world message"
+
+[master (root-commit) d3ec061] Add initial hello world message
+ Committer: 石田一真 <kazumai@ishidakazumanoMacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello_world.txt
+kazumai@ishidakazumanoMacBook-Pro git_challenge % echo "こんにちは、世界！" >> hello_world.txt
+kazumai@ishidakazumanoMacBook-Pro git_challenge % git add hello_world.txt   
+kazumai@ishidakazumanoMacBook-Pro git_challenge % git commit -m "Added second line"
+
+[master fa14d9b] Added second line
+ Committer: 石田一真 <kazumai@ishidakazumanoMacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+
+ #3 Step4の変更履歴を表示してます。
+kazumai@ishidakazumanoMacBook-Pro git_challenge % git log -- hello_world.txt
+commit fa14d9bd66674a0c57cd11724031f4081ad92062 (HEAD -> master)
+Author: 石田一真 <kazumai@ishidakazumanoMacBook-Pro.local>
+Date:   Fri Oct 25 21:45:16 2024 +0900
+
+    Added second line
+
+commit d3ec0611bdeb53294d51ef717e85b85b44f417a6
+Author: 石田一真 <kazumai@ishidakazumanoMacBook-Pro.local>
+Date:   Fri Oct 25 21:41:00 2024 +0900
+
+    Add initial hello world message
+
+#4 Step4の変更履歴の確認です。
+    kazumai@ishidakazumanoMacBook-Pro git_challenge % git log --oneline
+
+fa14d9b (HEAD -> master) Added second line
+d3ec061 Add initial hello world message
